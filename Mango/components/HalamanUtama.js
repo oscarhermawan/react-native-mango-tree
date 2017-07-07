@@ -1,17 +1,27 @@
 import React from 'react';
 import { Text, View, Button, TextInput } from 'react-native'
+import { addTree } from '../actions'
+import { connect } from 'react-redux'
 
 class HalamanUtama extends React.Component {
   constructor(){
     super()
     this.state ={
       name:'',
-      treeName:''
+      umur_awal:0,
+      treeName:'',
+      umur_akhir:5
     }
   }
 
-  render() {
+  addPohon(){
     const navigate = this.props.navigation.navigate;
+    this.props.add_Tree(this.state)
+    alert('Data Berhasil Diinput')
+    navigate('Tree')
+  }
+
+  render() {
     return (
       <View >
         <Text>
@@ -33,14 +43,33 @@ class HalamanUtama extends React.Component {
           onChangeText={(treeName) => this.setState({treeName})}
           value={this.state.treeName}
         />
+
+        <Button
+          title="Save Pohon"
+          onPress={() =>
+            this.addPohon()
+          } />
+
+          <Text>
+            {'\n\n'}
+          </Text>
+          
         <Button
           title="Start"
           onPress={() =>
             navigate('Tree')
           } />
+
+
       </View>
     );
   }
 }
 
-export default HalamanUtama
+const mapDispatchToProps = (dispatch) =>{
+  return{
+    add_Tree:(obj)=>dispatch(addTree(obj))
+  }
+}
+
+export default connect(null, mapDispatchToProps) (HalamanUtama)

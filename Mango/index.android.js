@@ -10,8 +10,8 @@ import { HalamanUtama, Tree } from './components'
 import { StackNavigator } from 'react-navigation';
 
 
-// import { Provider } from 'react-redux'
-// import store from './store/configureStore'
+import { Provider } from 'react-redux'
+import store from './store/configureStore'
 
 const NavigatorHome = StackNavigator({
   Home: { screen: HalamanUtama},
@@ -25,9 +25,9 @@ export default class Mango extends Component {
 
   render() {
     return (
-      // <Provider store={store}>
+      <Provider store={store}>
         <NavigatorHome />
-      // </Provider>
+      </Provider>
     );
   }
 }
