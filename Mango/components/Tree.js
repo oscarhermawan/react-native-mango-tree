@@ -9,7 +9,6 @@ class Tree extends React.Component {
   emulatePohon(){
 
   }
-
   render() {
     console.log('tets print = ',this.props.pohon);
     return (
