@@ -13,13 +13,19 @@ class Tree extends React.Component {
   render() {
     return (
       <View style={{flex: 1, paddingTop: 22}}>
-        <Text>This is {this.props.pohon.treeName}, {'\n'} he is {this.props.pohon.umur_awal} year's old</Text>
-        <Text>{'\n\n\n'} </Text>
-        <Button
-          title="Emulate"
-          onPress={() =>
-            this.emulatePohon()
-          } />
+
+      { this.props.pohon.is_alive == true ? (
+        <View>
+          <Text>This is {this.props.pohon.treeName}, {'\n'} he is {this.props.pohon.umur_awal} year's old</Text>
+          <Text>{'\n\n\n'} </Text>
+          <Button
+            title="Emulate"
+            onPress={() =>
+              this.emulatePohon()
+            } />
+        </View>
+      ) : (<Text>Death</Text>)
+      }
       </View>
     );
   }
