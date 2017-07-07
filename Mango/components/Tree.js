@@ -1,21 +1,22 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native'
 import { connect } from 'react-redux'
-import { loadData } from '../actions'
+import { loadData, emulateTree } from '../actions'
 
 
 class Tree extends React.Component {
 
   emulatePohon(){
-
+    this.props.emulate_Tree()
   }
+
   render() {
-    console.log('tets print = ',this.props.pohon);
     return (
       <View style={{flex: 1, paddingTop: 22}}>
-        <Text>This is {this.props.pohon.treeName}, {'\n'} he is year's old</Text>
+        <Text>This is {this.props.pohon.treeName}, {'\n'} he is {this.props.pohon.umur_awal} year's old</Text>
+        <Text>{'\n\n\n'} </Text>
         <Button
-          title="Save Pohon"
+          title="Emulate"
           onPress={() =>
             this.emulatePohon()
           } />
@@ -30,4 +31,10 @@ const mapStateToProps = (state) =>{
   }
 }
 
-export default connect(mapStateToProps, null) (Tree)
+const mapDispatchToProps = (dispatch) =>{
+  return{
+    emulate_Tree:()=>dispatch(emulateTree())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (Tree)

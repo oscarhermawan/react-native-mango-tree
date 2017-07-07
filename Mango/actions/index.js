@@ -10,3 +10,9 @@ export const addTree = (obj) => {
     payload:obj
   };
 }
+
+export const emulateTree = () => {
+  return {
+    type: 'EMULATE_TREE'
+  };
+}

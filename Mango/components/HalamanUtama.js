@@ -10,7 +10,9 @@ class HalamanUtama extends React.Component {
       name:'',
       umur_awal:0,
       treeName:'',
-      umur_akhir:5
+      umur_akhir:8,
+      berbuah:5,
+      is_alive:true
     }
   }
 
@@ -53,12 +55,7 @@ class HalamanUtama extends React.Component {
           <Text>
             {'\n\n'}
           </Text>
-          
-        <Button
-          title="Start"
-          onPress={() =>
-            navigate('Tree')
-          } />
+
 
 
       </View>
